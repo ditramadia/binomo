@@ -11,6 +11,6 @@ Contoh: "python .\Binomo.py .\saves\2022-4-1-22-45" <br />
 3. Untuk save data, tulis langsung nama folder yang diinginkan. <br />
 Contoh: Nama folder untuk data baru adalah "2022-4-1-23-14"<br />
 ====================== TERMINAL ================== <br />
->>> save <br />
+\>\>\> save <br />
 Masukkan nama folder penyimpanan: 2022-4-1-23-14 <br />
 ================================================== <br />
