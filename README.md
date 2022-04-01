@@ -13,4 +13,5 @@ Contoh: Nama folder untuk data baru adalah "2022-4-1-23-14"<br />
 ====================== TERMINAL ================== <br />
 \>\>\> save <br />
 Masukkan nama folder penyimpanan: 2022-4-1-23-14 <br />
+Data telah disimpan pada folder saves\2022-4-1-23-14!
 ================================================== <br />

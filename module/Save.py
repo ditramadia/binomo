@@ -21,7 +21,7 @@ def Save(userData, gameData):
 
     SaveUserData(userData, saveFolder)
     SaveGameData(gameData, saveFolder)
-    print(f'Data telah disimpan pada folder saves/{saveFolder}!')
+    print(f'Data telah disimpan pada folder saves\{saveFolder}!')
 
 
 def SaveUserData(userData, saveFolder):
