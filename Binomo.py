@@ -1,11 +1,13 @@
 # Main Program BINOMO
 
+import module.globalModule as Global
 import module.Load as Load
 import module.Help as Help
 import module.Login as Login
 import module.Register as Register
 import module.Topup as Topup
 import module.ListGameToko as ListGameToko
+import module.SearchGameToko as SearchGameToko
 import module.Save as Save
 import module.Exit as Exit
 
@@ -51,6 +53,12 @@ while True:
     elif (command == "list_game_toko"):
         if (currentState["role"] != "guest"):
             ListGameToko.ListGameToko(gameData)
+        else:
+            print(
+                "Maaf, anda harus login terlebih dahulu untuk mengirim perintah selain “login”.")
+    elif (command == "search_game_at_store"):
+        if (currentState["role"] != "guest"):
+            SearchGameToko.SearchGameToko(gameData)
         else:
             print(
                 "Maaf, anda harus login terlebih dahulu untuk mengirim perintah selain “login”.")

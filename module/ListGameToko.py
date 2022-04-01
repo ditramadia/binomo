@@ -1,5 +1,8 @@
 # LIST GAME TOKO MODULE
 
+import module.globalModule as Global
+
+
 def ListGameToko(gameData):
     sorting = str(input("Skema sorting: "))
     while not isSortingValid(sorting):
@@ -26,7 +29,7 @@ def isSortingValid(sorting):
 def ListGameHargaAscending(gameData):
     gameDataTemp = ["" for i in range(len(gameData))]
     for i in range(len(gameData)):
-        gameDataTemp[i] = gameData[convertGameId(i + 1)]["id"]
+        gameDataTemp[i] = gameData[Global.convertGameId(i + 1)]["id"]
 
     listNumber = 0
     while len(gameDataTemp) > 0:
@@ -44,7 +47,7 @@ def ListGameHargaAscending(gameData):
         gameStock = lowestPriceGame["stok"]
 
         print(
-            f"{listNumber + 1}. {gameId} | {displayGameCharacters(gameName, 25)} | {displayGameCharacters(gamePrice, 7)} | {displayGameCharacters(gameCategory, 20)} | {gameRelease} | {gameStock} ")
+            f"{listNumber + 1}. {gameId} | {Global.displayGameCharacters(gameName, 25)} | {Global.displayGameCharacters(gamePrice, 7)} | {Global.displayGameCharacters(gameCategory, 20)} | {gameRelease} | {gameStock} ")
 
         gameDataTemp.remove(gameId)
         listNumber += 1
@@ -53,7 +56,7 @@ def ListGameHargaAscending(gameData):
 def ListGameHargaDescending(gameData):
     gameDataTemp = ["" for i in range(len(gameData))]
     for i in range(len(gameData)):
-        gameDataTemp[i] = gameData[convertGameId(i + 1)]["id"]
+        gameDataTemp[i] = gameData[Global.convertGameId(i + 1)]["id"]
 
     listNumber = 0
     while len(gameDataTemp) > 0:
@@ -71,7 +74,7 @@ def ListGameHargaDescending(gameData):
         gameStock = highestPriceGame["stok"]
 
         print(
-            f"{listNumber + 1}. {gameId} | {displayGameCharacters(gameName, 25)} | {displayGameCharacters(gamePrice, 7)} | {displayGameCharacters(gameCategory, 20)} | {gameRelease} | {gameStock} ")
+            f"{listNumber + 1}. {gameId} | {Global.displayGameCharacters(gameName, 25)} | {displayGameCharacters(gamePrice, 7)} | {displayGameCharacters(gameCategory, 20)} | {gameRelease} | {gameStock} ")
 
         gameDataTemp.remove(gameId)
         listNumber += 1
@@ -80,7 +83,7 @@ def ListGameHargaDescending(gameData):
 def ListGameTahunAscending(gameData):
     gameDataTemp = ["" for i in range(len(gameData))]
     for i in range(len(gameData)):
-        gameDataTemp[i] = gameData[convertGameId(i + 1)]["id"]
+        gameDataTemp[i] = gameData[Global.convertGameId(i + 1)]["id"]
 
     listNumber = 0
     while len(gameDataTemp) > 0:
@@ -98,7 +101,7 @@ def ListGameTahunAscending(gameData):
         gameStock = lowestReleaseGame["stok"]
 
         print(
-            f"{listNumber + 1}. {gameId} | {displayGameCharacters(gameName, 25)} | {displayGameCharacters(gamePrice, 7)} | {displayGameCharacters(gameCategory, 20)} | {gameRelease} | {gameStock} ")
+            f"{listNumber + 1}. {gameId} | {Global.displayGameCharacters(gameName, 25)} | {displayGameCharacters(gamePrice, 7)} | {displayGameCharacters(gameCategory, 20)} | {gameRelease} | {gameStock} ")
 
         gameDataTemp.remove(gameId)
         listNumber += 1
@@ -107,7 +110,7 @@ def ListGameTahunAscending(gameData):
 def ListGameTahunDescending(gameData):
     gameDataTemp = ["" for i in range(len(gameData))]
     for i in range(len(gameData)):
-        gameDataTemp[i] = gameData[convertGameId(i + 1)]["id"]
+        gameDataTemp[i] = gameData[Global.convertGameId(i + 1)]["id"]
 
     listNumber = 0
     while len(gameDataTemp) > 0:
@@ -125,7 +128,7 @@ def ListGameTahunDescending(gameData):
         gameStock = highestReleaseGame["stok"]
 
         print(
-            f"{listNumber + 1}. {gameId} | {displayGameCharacters(gameName, 25)} | {displayGameCharacters(gamePrice, 7)} | {displayGameCharacters(gameCategory, 20)} | {gameRelease} | {gameStock} ")
+            f"{listNumber + 1}. {gameId} | {Global.displayGameCharacters(gameName, 25)} | {displayGameCharacters(gamePrice, 7)} | {displayGameCharacters(gameCategory, 20)} | {gameRelease} | {gameStock} ")
 
         gameDataTemp.remove(gameId)
         listNumber += 1
@@ -140,26 +143,3 @@ def updateTempGame(gameId, gameData):
         "harga": gameData[gameId]["harga"],
         "stok": gameData[gameId]["stok"]
     }
-
-
-def convertGameId(number):
-    if (number // 10 == 0):
-        return f"GAME00{number}"
-    elif (1 <= number // 10 <= 9):
-        return f"GAME0{number}"
-    elif (10 <= number // 10):
-        return f"GAME{number}"
-
-
-def displayGameCharacters(string, length):
-    finalString = ""
-    if (len(string) > length):
-        for i in range(length - 4):
-            finalString += string[i]
-        finalString += " ..."
-    else:
-        nSpace = length - len(string)
-        finalString = string
-        for i in range(nSpace):
-            finalString += " "
-    return finalString
