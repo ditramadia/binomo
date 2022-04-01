@@ -1,9 +1,18 @@
-a = ["Aku sudah gila", "Kamu sudah gila", "Aku dan Kamu", "Kita"]
+def Fungsi():
+    global message
+    global date
+    message = Content("Halo")
+    date = Date(29)
 
-for i in range(len(a)):
-    if ("Aku" not in a[i]):
-        a[i] = "x"
-    else:
-        pass
 
-print(a)
+def Content(message):
+    return "message"
+
+
+def Date(date):
+    return date
+
+
+Fungsi()
+print(message)
+print(date)

@@ -14,14 +14,19 @@ def LoadFolder():
 
     # Check Folder
     if (path.isdir(args.folder)):
-        pass
+        global folderName
+        folderName = args.folder
     else:
         print(f'Folder {args.folder} tidak ditemukan.')
         sys.exit()
 
 
-def LoadUserData():
-    file = open(f".\\data\\user.csv", 'r')
+def getFolderName():
+    return folderName
+
+
+def LoadUserData(folder):
+    file = open(f".\\{folder}\\user.csv", 'r')
     dataFrame = {}
     header = file.readline().replace('\n', '').split(';')
     for line in file:
@@ -37,8 +42,8 @@ def LoadUserData():
     return dataFrame
 
 
-def LoadGameData():
-    file = open(".\\data\\game.csv", 'r')
+def LoadGameData(folder):
+    file = open(f".\\{folder}\\game.csv", 'r')
     dataFrame = {}
     header = file.readline().replace('\n', '').split(';')
     for line in file:

@@ -49,17 +49,17 @@ def SaveGameData(gameData, saveFolder):
 
     file = open(f".\\saves\\{saveFolder}\\game.csv", 'a')
     for i in range(len(gameData)):
-        updateGameId = gameData[Global.convertGameId(len(gameData))]["id"]
+        updateGameId = gameData[Global.convertGameId(i + 1)]["id"]
         updateGameName = gameData[Global.convertGameId(
-            len(gameData))]["nama"]
+            i + 1)]["nama"]
         updateGameCategory = gameData[Global.convertGameId(
-            len(gameData))]["kategori"]
+            i + 1)]["kategori"]
         updateGameRelease = gameData[Global.convertGameId(
-            len(gameData))]["tahun_rilis"]
+            i + 1)]["tahun_rilis"]
         updateGamePrice = gameData[Global.convertGameId(
-            len(gameData))]["harga"]
+            i + 1)]["harga"]
         updateGameStock = gameData[Global.convertGameId(
-            len(gameData))]["stok"]
+            i + 1)]["stok"]
         file.write(
             f"{updateGameId};{updateGameName};{updateGameCategory};{updateGameRelease};{updateGamePrice};{updateGameStock}\n")
     file.close()

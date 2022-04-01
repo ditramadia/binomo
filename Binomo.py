@@ -15,10 +15,10 @@ import module.Exit as Exit
 
 # LOAD DATA
 Load.LoadFolder()
-userData = Load.LoadUserData()
-gameData = Load.LoadGameData()
-kepemilikanData = Load.LoadKepemilikanData()
-riwayatData = Load.LoadRiwayatData()
+userData = Load.LoadUserData(Load.getFolderName())
+gameData = Load.LoadGameData(Load.getFolderName())
+# kepemilikanData = Load.LoadKepemilikanData()
+# riwayatData = Load.LoadRiwayatData()
 print('Loading ...')
 print('Selamat datang di antarmuka "Binomo"')
 print("Masukkan perintah atau ketik 'help' untuk melihat daftar perintah")

@@ -21,7 +21,7 @@ def isExitConfirmed():
 
 
 def isValidConfirmed(confirm):
-    if (confirm == "Y" or confirm == "y" or confirm == "N" or confirm == "y"):
+    if (confirm == "Y" or confirm == "y" or confirm == "N" or confirm == "n"):
         return True
     else:
         return False
