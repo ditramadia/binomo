@@ -10,6 +10,7 @@ import module.ListGameToko as ListGameToko
 import module.SearchGameToko as SearchGameToko
 import module.TambahGame as TambahGame
 import module.UbahGame as UbahGame
+import module.UbahStok as UbahStok
 import module.Save as Save
 import module.Exit as Exit
 
@@ -83,6 +84,12 @@ while True:
     elif (command == "ubah_game"):
         if (currentState["role"] == "admin"):
             UbahGame.UbahGame(gameData)
+            programStatus = "unsaved"
+        else:
+            print("Maaf, anda tidak memiliki izin untuk menjalankan perintah berikut. Mintalah ke administrator untuk melakukan hal tersebut.")
+    elif (command == "ubah_stok"):
+        if (currentState["role"] == "admin"):
+            UbahStok.ubahStok(gameData)
             programStatus = "unsaved"
         else:
             print("Maaf, anda tidak memiliki izin untuk menjalankan perintah berikut. Mintalah ke administrator untuk melakukan hal tersebut.")

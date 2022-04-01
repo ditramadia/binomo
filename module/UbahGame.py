@@ -7,7 +7,7 @@ def UbahGame(gameData):
     else:
         idValid = False
     while not idValid:
-        print('Game tidak ditemukan')
+        print('Tidak ada game dengan ID tersebut.')
         gameId = str(input('Masukkan ulang id game yang akan diubah: '))
         if (gameId in gameData):
             idValid = True
