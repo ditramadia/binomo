@@ -9,14 +9,25 @@ import module.Topup as Topup
 import module.ListGameToko as ListGameToko
 import module.SearchGameToko as SearchGameToko
 import module.TambahGame as TambahGame
+import module.UbahGame as UbahGame
 import module.Save as Save
 import module.Exit as Exit
 
 
-# LOAD DATA
-Load.LoadFolder()
-userData = Load.LoadUserData(Load.getFolderName())
-gameData = Load.LoadGameData(Load.getFolderName())
+# LOAD DATA (PRODUCTION)
+# Load.LoadFolder()
+# userData = Load.LoadUserData(Load.getFolderName())
+# gameData = Load.LoadGameData(Load.getFolderName())
+# # kepemilikanData = Load.LoadKepemilikanData()
+# # riwayatData = Load.LoadRiwayatData()
+# print('Loading ...')
+# print('Selamat datang di antarmuka "Binomo"')
+# print("Masukkan perintah atau ketik 'help' untuk melihat daftar perintah")
+
+# LOAD DATA (DEVELOPMENT)
+# Load.LoadFolder()
+userData = Load.LoadUserData("data")
+gameData = Load.LoadGameData("data")
 # kepemilikanData = Load.LoadKepemilikanData()
 # riwayatData = Load.LoadRiwayatData()
 print('Loading ...')
@@ -66,6 +77,12 @@ while True:
     elif (command == "tambah_game"):
         if (currentState["role"] == "admin"):
             TambahGame.TambahGame(gameData)
+            programStatus = "unsaved"
+        else:
+            print("Maaf, anda tidak memiliki izin untuk menjalankan perintah berikut. Mintalah ke administrator untuk melakukan hal tersebut.")
+    elif (command == "ubah_game"):
+        if (currentState["role"] == "admin"):
+            UbahGame.UbahGame(gameData)
             programStatus = "unsaved"
         else:
             print("Maaf, anda tidak memiliki izin untuk menjalankan perintah berikut. Mintalah ke administrator untuk melakukan hal tersebut.")
