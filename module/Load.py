@@ -21,7 +21,7 @@ def LoadFolder():
 
 
 def LoadUserData():
-    file = open(".\\data\\user.csv", 'r')
+    file = open(f".\\data\\user.csv", 'r')
     dataFrame = {}
     header = file.readline().replace('\n', '').split(';')
     for line in file:

@@ -74,7 +74,7 @@ def ListGameHargaDescending(gameData):
         gameStock = highestPriceGame["stok"]
 
         print(
-            f"{listNumber + 1}. {gameId} | {Global.displayGameCharacters(gameName, 25)} | {displayGameCharacters(gamePrice, 7)} | {displayGameCharacters(gameCategory, 20)} | {gameRelease} | {gameStock} ")
+            f"{listNumber + 1}. {gameId} | {Global.displayGameCharacters(gameName, 25)} | {Global.displayGameCharacters(gamePrice, 7)} | {Global.displayGameCharacters(gameCategory, 20)} | {gameRelease} | {gameStock} ")
 
         gameDataTemp.remove(gameId)
         listNumber += 1
@@ -101,7 +101,7 @@ def ListGameTahunAscending(gameData):
         gameStock = lowestReleaseGame["stok"]
 
         print(
-            f"{listNumber + 1}. {gameId} | {Global.displayGameCharacters(gameName, 25)} | {displayGameCharacters(gamePrice, 7)} | {displayGameCharacters(gameCategory, 20)} | {gameRelease} | {gameStock} ")
+            f"{listNumber + 1}. {gameId} | {Global.displayGameCharacters(gameName, 25)} | {Global.displayGameCharacters(gamePrice, 7)} | {Global.displayGameCharacters(gameCategory, 20)} | {gameRelease} | {gameStock} ")
 
         gameDataTemp.remove(gameId)
         listNumber += 1
@@ -128,7 +128,7 @@ def ListGameTahunDescending(gameData):
         gameStock = highestReleaseGame["stok"]
 
         print(
-            f"{listNumber + 1}. {gameId} | {Global.displayGameCharacters(gameName, 25)} | {displayGameCharacters(gamePrice, 7)} | {displayGameCharacters(gameCategory, 20)} | {gameRelease} | {gameStock} ")
+            f"{listNumber + 1}. {gameId} | {Global.displayGameCharacters(gameName, 25)} | {Global.displayGameCharacters(gamePrice, 7)} | {Global.displayGameCharacters(gameCategory, 20)} | {gameRelease} | {gameStock} ")
 
         gameDataTemp.remove(gameId)
         listNumber += 1

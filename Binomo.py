@@ -8,17 +8,18 @@ import module.Register as Register
 import module.Topup as Topup
 import module.ListGameToko as ListGameToko
 import module.SearchGameToko as SearchGameToko
+import module.TambahGame as TambahGame
 import module.Save as Save
 import module.Exit as Exit
 
 
 # LOAD DATA
-# Load.LoadFolder()
-print('Loading ...')
+Load.LoadFolder()
 userData = Load.LoadUserData()
 gameData = Load.LoadGameData()
 kepemilikanData = Load.LoadKepemilikanData()
 riwayatData = Load.LoadRiwayatData()
+print('Loading ...')
 print('Selamat datang di antarmuka "Binomo"')
 print("Masukkan perintah atau ketik 'help' untuk melihat daftar perintah")
 
@@ -62,12 +63,18 @@ while True:
         else:
             print(
                 "Maaf, anda harus login terlebih dahulu untuk mengirim perintah selain “login”.")
+    elif (command == "tambah_game"):
+        if (currentState["role"] == "admin"):
+            TambahGame.TambahGame(gameData)
+            programStatus = "unsaved"
+        else:
+            print("Maaf, anda tidak memiliki izin untuk menjalankan perintah berikut. Mintalah ke administrator untuk melakukan hal tersebut.")
     elif (command == "save"):
-        Save.Save(userData)
+        Save.Save(userData, gameData)
     elif (command == "exit"):
         if (programStatus == "unsaved"):
             if (Exit.isExitConfirmed()):
-                Save.Save(userData)
+                Save.Save(userData, gameData)
                 Exit.Exit()
             else:
                 Exit.Exit()
