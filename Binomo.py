@@ -12,11 +12,14 @@ import module.TambahGame as TambahGame
 import module.UbahGame as UbahGame
 import module.UbahStok as UbahStok
 import module.BuyGame as BuyGame
+import module.Riwayat as Riwayat
+import module.ListGame as ListGame
+import module.SearchMyGame as SearchMyGame
 import module.Save as Save
 import module.Exit as Exit
 
 
-# LOAD DATA (PRODUCTION)
+# LOAD DATA(PRODUCTION)
 # Load.LoadFolder()
 # userData = Load.LoadUserData(Load.getFolderName())
 # gameData = Load.LoadGameData(Load.getFolderName())
@@ -38,12 +41,12 @@ print("Masukkan perintah atau ketik 'help' untuk melihat daftar perintah")
 
 # INITIAL STATE
 currentState = {
-    "id": "2",
-    "username": "agungliv",
-    "nama": "Agung Livier",
-    "password": "ditonton212022",
-    "role": "user",
-    "saldo": "100000000"
+    "id": None,
+    "username": None,
+    "nama": None,
+    "password": None,
+    "role": "guest",
+    "saldo": None
 }
 programStatus = "saved"
 
@@ -98,6 +101,22 @@ while True:
         if (currentState["role"] == "user"):
             BuyGame.BuyGame(currentState, userData, gameData,
                             kepemilikanData, riwayatData)
+            programStatus = "unsaved"
+        else:
+            print("Maaf, Anda harus menjadi user untuk melakukan hal tersebut.")
+    elif (command == "riwayat"):
+        if (currentState["role"] == "user"):
+            Riwayat.Riwayat(riwayatData, currentState)
+        else:
+            print("Maaf, Anda harus menjadi user untuk melakukan hal tersebut.")
+    elif (command == "list_game"):
+        if (currentState["role"] == "user"):
+            ListGame.ListGame(currentState, kepemilikanData, gameData)
+        else:
+            print("Maaf, Anda harus menjadi user untuk melakukan hal tersebut.")
+    elif (command == "search_my_game"):
+        if (currentState["role"] == "user"):
+            SearchMyGame.SearchMyGame(currentState, kepemilikanData, gameData)
         else:
             print("Maaf, Anda harus menjadi user untuk melakukan hal tersebut.")
     elif (command == "save"):

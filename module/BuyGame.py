@@ -4,6 +4,7 @@ import datetime
 
 
 def BuyGame(currentState, userData, gameData, kepemilikanData, riwayatData):
+    print(userData)
     idGameInput = str(input("Masukkan ID Game: "))
     if (idGameInput in gameData):
         isGameIdValid = True
@@ -24,7 +25,7 @@ def BuyGame(currentState, userData, gameData, kepemilikanData, riwayatData):
     elif (isGamePurchased(currentState, kepemilikanData, idGameInput)):
         print("Anda sudah memiliki Game tersebut!")
     else:
-        userId = currentState["id"]
+        userId = str(currentState["id"])
         userSaldo = int(userData[userId]["saldo"])
         userSaldo -= int(gameData[idGameInput]["harga"])
         userData[userId]["saldo"] = str(userSaldo)
