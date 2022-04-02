@@ -11,6 +11,7 @@ import module.SearchGameToko as SearchGameToko
 import module.TambahGame as TambahGame
 import module.UbahGame as UbahGame
 import module.UbahStok as UbahStok
+import module.BuyGame as BuyGame
 import module.Save as Save
 import module.Exit as Exit
 
@@ -19,8 +20,8 @@ import module.Exit as Exit
 # Load.LoadFolder()
 # userData = Load.LoadUserData(Load.getFolderName())
 # gameData = Load.LoadGameData(Load.getFolderName())
-# # kepemilikanData = Load.LoadKepemilikanData()
-# # riwayatData = Load.LoadRiwayatData()
+# kepemilikanData = Load.LoadKepemilikanData(Load.getFolderName())
+# riwayatData = Load.LoadRiwayatData(Load.getFolderName())
 # print('Loading ...')
 # print('Selamat datang di antarmuka "Binomo"')
 # print("Masukkan perintah atau ketik 'help' untuk melihat daftar perintah")
@@ -29,20 +30,20 @@ import module.Exit as Exit
 # Load.LoadFolder()
 userData = Load.LoadUserData("data")
 gameData = Load.LoadGameData("data")
-# kepemilikanData = Load.LoadKepemilikanData()
-# riwayatData = Load.LoadRiwayatData()
+kepemilikanData = Load.LoadKepemilikanData("data")
+riwayatData = Load.LoadRiwayatData("data")
 print('Loading ...')
 print('Selamat datang di antarmuka "Binomo"')
 print("Masukkan perintah atau ketik 'help' untuk melihat daftar perintah")
 
 # INITIAL STATE
 currentState = {
-    "id": None,
-    "username": None,
-    "nama": None,
-    "password": None,
-    "role": "admin",
-    "saldo": None
+    "id": "2",
+    "username": "agungliv",
+    "nama": "Agung Livier",
+    "password": "ditonton212022",
+    "role": "user",
+    "saldo": "100000000"
 }
 programStatus = "saved"
 
@@ -93,12 +94,18 @@ while True:
             programStatus = "unsaved"
         else:
             print("Maaf, anda tidak memiliki izin untuk menjalankan perintah berikut. Mintalah ke administrator untuk melakukan hal tersebut.")
+    elif (command == "buy_game"):
+        if (currentState["role"] == "user"):
+            BuyGame.BuyGame(currentState, userData, gameData,
+                            kepemilikanData, riwayatData)
+        else:
+            print("Maaf, Anda harus menjadi user untuk melakukan hal tersebut.")
     elif (command == "save"):
-        Save.Save(userData, gameData)
+        Save.Save(userData, gameData, kepemilikanData, riwayatData)
     elif (command == "exit"):
         if (programStatus == "unsaved"):
             if (Exit.isExitConfirmed()):
-                Save.Save(userData, gameData)
+                Save.Save(userData, gameData, kepemilikanData, riwayatData)
                 Exit.Exit()
             else:
                 Exit.Exit()

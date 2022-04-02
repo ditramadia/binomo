@@ -1,2 +1,2 @@
-game_id;nama;harga;user_id;tahun_beli
-GAME001;BNMO - Play Along with Crypto;100000;2022
+id;game_id;nama;harga;user_id;tahun_beli
+1;GAME001;BNMO - Play Along with Crypto;100000;1;2022

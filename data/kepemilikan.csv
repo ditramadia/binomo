@@ -1,2 +1,2 @@
-game_id;user_id
-GAME001;1
+id;game_id;user_id
+1;GAME001;1

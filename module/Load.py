@@ -59,8 +59,8 @@ def LoadGameData(folder):
     return dataFrame
 
 
-def LoadKepemilikanData():
-    file = open(".\\data\\kepemilikan.csv", 'r')
+def LoadKepemilikanData(folder):
+    file = open(f".\\{folder}\\kepemilikan.csv", 'r')
     dataFrame = {}
     header = file.readline().replace('\n', '').split(';')
     for line in file:
@@ -71,13 +71,13 @@ def LoadKepemilikanData():
                 row[header[x]] = linedata[x]
             else:
                 row[header[x]] = "null"
-        dataFrame[linedata[0]] = [row]
+        dataFrame[linedata[0]] = row
     file.close()
     return dataFrame
 
 
-def LoadRiwayatData():
-    file = open(".\\data\\riwayat.csv", 'r')
+def LoadRiwayatData(folder):
+    file = open(f".\\{folder}\\riwayat.csv", 'r')
     dataFrame = {}
     header = file.readline().replace('\n', '').split(';')
     for line in file:
@@ -88,6 +88,6 @@ def LoadRiwayatData():
                 row[header[x]] = linedata[x]
             else:
                 row[header[x]] = "null"
-        dataFrame[linedata[0]] = [row]
+        dataFrame[linedata[0]] = row
     file.close()
     return dataFrame
