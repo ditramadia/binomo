@@ -20,24 +20,24 @@ import module.Exit as Exit
 
 
 # LOAD DATA(PRODUCTION)
-# Load.LoadFolder()
-# userData = Load.LoadUserData(Load.getFolderName())
-# gameData = Load.LoadGameData(Load.getFolderName())
-# kepemilikanData = Load.LoadKepemilikanData(Load.getFolderName())
-# riwayatData = Load.LoadRiwayatData(Load.getFolderName())
-# print('Loading ...')
-# print('Selamat datang di antarmuka "Binomo"')
-# print("Masukkan perintah atau ketik 'help' untuk melihat daftar perintah")
-
-# LOAD DATA (DEVELOPMENT)
-# Load.LoadFolder()
-userData = Load.LoadUserData("data")
-gameData = Load.LoadGameData("data")
-kepemilikanData = Load.LoadKepemilikanData("data")
-riwayatData = Load.LoadRiwayatData("data")
+Load.LoadFolder()
+userData = Load.LoadUserData(Load.getFolderName())
+gameData = Load.LoadGameData(Load.getFolderName())
+kepemilikanData = Load.LoadKepemilikanData(Load.getFolderName())
+riwayatData = Load.LoadRiwayatData(Load.getFolderName())
 print('Loading ...')
 print('Selamat datang di antarmuka "Binomo"')
 print("Masukkan perintah atau ketik 'help' untuk melihat daftar perintah")
+
+# LOAD DATA (DEVELOPMENT)
+# Load.LoadFolder()
+# userData = Load.LoadUserData("data")
+# gameData = Load.LoadGameData("data")
+# kepemilikanData = Load.LoadKepemilikanData("data")
+# riwayatData = Load.LoadRiwayatData("data")
+# print('Loading ...')
+# print('Selamat datang di antarmuka "Binomo"')
+# print("Masukkan perintah atau ketik 'help' untuk melihat daftar perintah")
 
 # INITIAL STATE
 currentState = {

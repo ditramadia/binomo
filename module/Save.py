@@ -7,11 +7,13 @@ import module.globalModule as Global
 
 def Save(userData, gameData, kepemilikanData, riwayatData):
     saveFolder = input('Masukkan nama folder penyimpanan: ')
+    # Ubah di sini
     saveDirectory = f"E:/Kuliah/ITB/IF1210/Tubes/saves/{saveFolder}"
 
     while os.path.exists(saveDirectory):
         print(f'Folder dengan nama {saveFolder} sudah ada.')
         saveFolder = input('Masukkan ulang nama folder penyimpanan: ')
+        # Ubah di sini
         saveDirectory = f"E:/Kuliah/ITB/IF1210/Tubes/saves/{saveFolder}"
 
     print('Saving...')
