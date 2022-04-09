@@ -54,7 +54,6 @@ while True:
     command = str(input(">>> "))
     if (command == "help"):
         Help.callHelp(currentState)
-        print(userData)
     elif (command == "login"):
         Login.Login(currentState, userData)
     elif (command == "register"):

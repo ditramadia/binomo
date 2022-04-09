@@ -29,7 +29,8 @@ def getFolderName():
 def LoadUserData(folder):
     file = open(f".\\{folder}\\user.csv", 'r')
     dataFrame = {}
-    header = file.readline().replace('\n', '')
+    header = file.readline()
+    header = Global.Replace(header, "\n", "")
     header = Global.seperate(header, ";")
     for line in file:
         linedata = line.replace('\n', '')
@@ -48,7 +49,8 @@ def LoadUserData(folder):
 def LoadGameData(folder):
     file = open(f".\\{folder}\\game.csv", 'r')
     dataFrame = {}
-    header = file.readline().replace('\n', '')
+    header = file.readline()
+    header = Global.Replace(header, "\n", "")
     header = Global.seperate(header, ";")
     for line in file:
         linedata = line.replace('\n', '')
@@ -67,7 +69,8 @@ def LoadGameData(folder):
 def LoadKepemilikanData(folder):
     file = open(f".\\{folder}\\kepemilikan.csv", 'r')
     dataFrame = {}
-    header = file.readline().replace('\n', '')
+    header = file.readline()
+    header = Global.Replace(header, "\n", "")
     header = Global.seperate(header, ";")
     for line in file:
         linedata = line.replace('\n', '')
@@ -86,7 +89,8 @@ def LoadKepemilikanData(folder):
 def LoadRiwayatData(folder):
     file = open(f".\\{folder}\\riwayat.csv", 'r')
     dataFrame = {}
-    header = file.readline().replace('\n', '')
+    header = file.readline()
+    header = Global.Replace(header, "\n", "")
     header = Global.seperate(header, ";")
     for line in file:
         linedata = line.replace('\n', '')

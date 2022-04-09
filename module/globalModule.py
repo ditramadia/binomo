@@ -49,3 +49,20 @@ def seperate(string, word):
         else:
             list[listIndex] += string[i]
     return list
+
+
+# replace()
+def Replace(string, initialCharacter, finalCharacter):
+    listedString = ["" for i in range(len(string))]
+    for i in range(len(string)):
+        listedString[i] = string[i]
+
+    for i in range(len(listedString)):
+        if (listedString[i] == initialCharacter):
+            listedString[i] = finalCharacter
+
+    string = ""
+    for i in range(len(listedString)):
+        string += listedString[i]
+
+    return string
