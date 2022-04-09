@@ -7,9 +7,9 @@ def SearchMyGame(currentState, kepemilikanData, gameData):
     gameIdInput = str(input("Masukkan ID Game: "))
     gameReleaseInput = str(input("Masukkan Tahun Rilis Game: "))
 
-    matchList = ["" for i in range(len(kepemilikanData))]
+    matchList = ["" for i in range(Global.length(kepemilikanData))]
     matchListIndex = 0
-    for i in range(len(kepemilikanData)):
+    for i in range(Global.length(kepemilikanData)):
         if (int(kepemilikanData[str(i + 1)]["user_id"]) == int(currentState["id"])):
             matchList[matchListIndex] = kepemilikanData[str(i + 1)]["game_id"]
             matchListIndex += 1
@@ -26,14 +26,14 @@ def SearchMyGame(currentState, kepemilikanData, gameData):
             i += 1
 
     print("Daftar game pada inventory yang memenuhi kriteria:")
-    if (len(matchList) > 0):
-        for i in range(len(matchList)):
+    if (Global.length(matchList) > 0):
+        for i in range(Global.length(matchList)):
             print(f'{i + 1}. {matchList[i]} | {Global.displayGameCharacters(gameData[matchList[i]]["nama"], 25)} | {Global.displayGameCharacters(gameData[matchList[i]]["harga"], 7)} | {Global.displayGameCharacters(gameData[matchList[i]]["kategori"], 20)} | {gameData[matchList[i]]["tahun_rilis"]}')
 
 
 def filterId(gameIdInput, matchList):
-    if (len(gameIdInput) != 0):
-        for i in range(len(matchList)):
+    if (Global.length(gameIdInput) != 0):
+        for i in range(Global.length(matchList)):
             if (matchList[i] != gameIdInput):
                 matchList[i] = "x"
 
@@ -48,8 +48,8 @@ def filterId(gameIdInput, matchList):
 
 
 def filterRelease(gameReleaseInput, gameData, matchList):
-    if (len(gameReleaseInput) != 0):
-        for i in range(len(matchList)):
+    if (Global.length(gameReleaseInput) != 0):
+        for i in range(Global.length(matchList)):
             if (gameData[matchList[i]]["tahun_rilis"] != gameReleaseInput):
                 matchList[i] = "x"
 

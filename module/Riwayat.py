@@ -7,14 +7,14 @@ def Riwayat(riwayatData, currentState):
     currentId = currentState["id"]
 
     isUserHasRiwayat = False
-    for i in range(len(riwayatData)):
+    for i in range(Global.length(riwayatData)):
         if (riwayatData[str(i + 1)]["user_id"] == currentId):
             isUserHasRiwayat = True
 
     if (isUserHasRiwayat):
         print("Daftar game:")
         displayNumber = 1
-        for i in range(len(riwayatData)):
+        for i in range(Global.length(riwayatData)):
             if (riwayatData[str(i + 1)]["user_id"] == currentId):
                 gameName = riwayatData[str(i + 1)]["nama"]
                 gamePrice = riwayatData[str(i + 1)]["harga"]

@@ -7,14 +7,14 @@ def ListGame(currentState, kepemilikanData, gameData):
     currentId = currentState["id"]
 
     isUserHasGame = False
-    for i in range(len(kepemilikanData)):
+    for i in range(Global.length(kepemilikanData)):
         if (kepemilikanData[str(i + 1)]["user_id"] == currentId):
             isUserHasGame = True
 
     if (isUserHasGame):
         print("Daftar game:")
         displayNumber = 1
-        for i in range(len(kepemilikanData)):
+        for i in range(Global.length(kepemilikanData)):
             if (kepemilikanData[str(i + 1)]["user_id"] == currentId):
                 gameId = kepemilikanData[str(i + 1)]["game_id"]
                 gameName = gameData[gameId]["nama"]

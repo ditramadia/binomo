@@ -3,6 +3,7 @@
 from os import path
 import argparse
 import sys
+import module.globalModule as Global
 
 
 def LoadFolder():
@@ -32,8 +33,8 @@ def LoadUserData(folder):
     for line in file:
         linedata = line.replace('\n', '').split(';')
         row = {}
-        for x in range(len(header)):
-            if (x in range(len(linedata))):
+        for x in range(Global.length(header)):
+            if (x in range(Global.length(linedata))):
                 row[header[x]] = linedata[x]
             else:
                 row[header[x]] = "null"
@@ -49,8 +50,8 @@ def LoadGameData(folder):
     for line in file:
         linedata = line.replace('\n', '').split(';')
         row = {}
-        for x in range(len(header)):
-            if (x in range(len(linedata))):
+        for x in range(Global.length(header)):
+            if (x in range(Global.length(linedata))):
                 row[header[x]] = linedata[x]
             else:
                 row[header[x]] = "null"
@@ -66,8 +67,8 @@ def LoadKepemilikanData(folder):
     for line in file:
         linedata = line.replace('\n', '').split(';')
         row = {}
-        for x in range(len(header)):
-            if (x in range(len(linedata))):
+        for x in range(Global.length(header)):
+            if (x in range(Global.length(linedata))):
                 row[header[x]] = linedata[x]
             else:
                 row[header[x]] = "null"
@@ -83,8 +84,8 @@ def LoadRiwayatData(folder):
     for line in file:
         linedata = line.replace('\n', '').split(';')
         row = {}
-        for x in range(len(header)):
-            if (x in range(len(linedata))):
+        for x in range(Global.length(header)):
+            if (x in range(Global.length(linedata))):
                 row[header[x]] = linedata[x]
             else:
                 row[header[x]] = "null"

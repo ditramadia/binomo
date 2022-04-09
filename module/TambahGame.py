@@ -18,8 +18,8 @@ def TambahGame(gameData):
         newGamePrice = str(input("Masukkan harga: "))
         newGameStock = str(input("Masukkan stok awal: "))
 
-    gameData[Global.convertGameId(len(gameData) + 1)] = {
-        "id": Global.convertGameId(len(gameData) + 1),
+    gameData[Global.convertGameId(Global.length(gameData) + 1)] = {
+        "id": Global.convertGameId(Global.length(gameData) + 1),
         "nama": newGameName,
         "kategori": newGameCategory,
         "tahun_rilis": newGameRelease,
@@ -30,7 +30,7 @@ def TambahGame(gameData):
 
 
 def isInputValid(parameter):
-    if (len(parameter) == 0):
+    if (Global.length(parameter) == 0):
         return False
     else:
         return True

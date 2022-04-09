@@ -1,5 +1,8 @@
 # TOPUP MODULE
 
+import module.globalModule as Global
+
+
 def Topup(userData):
     usernameInput = str(input('Masukkan username: '))
     saldoInput = int(input("Masukkan saldo: "))
@@ -17,7 +20,7 @@ def Topup(userData):
 
 def isUsernameExist(userData, usernameInput):
     usernameExist = False
-    for i in range(len(userData)):
+    for i in range(Global.length(userData)):
         if (userData[str(i + 1)]["username"] == usernameInput):
             usernameExist = True
             break
@@ -25,7 +28,7 @@ def isUsernameExist(userData, usernameInput):
 
 
 def getTopupId(userData, usernameInput):
-    for i in range(len(userData)):
+    for i in range(Global.length(userData)):
         if (userData[str(i + 1)]["username"] == usernameInput):
             id = i + 1
         else:

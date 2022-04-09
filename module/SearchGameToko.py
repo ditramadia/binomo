@@ -10,8 +10,8 @@ def SearchGameToko(gameData):
     categoryInput = str(input("Masukkan Kategori Game: "))
     releaseInput = str(input("Masukkan Tahun Rilis Game: "))
 
-    matchList = ["" for i in range(len(gameData))]
-    for i in range(len(gameData)):
+    matchList = ["" for i in range(Global.length(gameData))]
+    for i in range(Global.length(gameData)):
         matchList[i] = gameData[Global.convertGameId(i + 1)]["id"]
 
     matchList = filterId(gameData, matchList, idInput)
@@ -21,22 +21,22 @@ def SearchGameToko(gameData):
     matchList = filterRelease(gameData, matchList, releaseInput)
 
     print("Daftar game pada toko yang memenuhi kriteria:")
-    for i in range(len(matchList)):
+    for i in range(Global.length(matchList)):
         print(f'{i + 1}. {matchList[i]} | {Global.displayGameCharacters(gameData[matchList[i]]["nama"], 25)} | {Global.displayGameCharacters(gameData[matchList[i]]["harga"], 7)} | {Global.displayGameCharacters(gameData[matchList[i]]["kategori"], 20)} | {gameData[matchList[i]]["tahun_rilis"]} | {gameData[matchList[i]]["stok"]}')
 
 
 def filterId(gameData, matchList, idInput):
-    if (len(idInput) == 0):
+    if (Global.length(idInput) == 0):
         return matchList
     else:
         return [gameData[idInput]["id"]]
 
 
 def filterName(gameData, matchList, nameInput):
-    if (len(nameInput) == 0):
+    if (Global.length(nameInput) == 0):
         return matchList
     else:
-        for i in range(len(matchList)):
+        for i in range(Global.length(matchList)):
             if (nameInput not in gameData[matchList[i]]["nama"]):
                 matchList[i] = "x"
             else:
@@ -53,10 +53,10 @@ def filterName(gameData, matchList, nameInput):
 
 
 def filterPrice(gameData, matchList, priceInput):
-    if (len(priceInput) == 0):
+    if (Global.length(priceInput) == 0):
         return matchList
     else:
-        for i in range(len(matchList)):
+        for i in range(Global.length(matchList)):
             if (priceInput != gameData[matchList[i]]["harga"]):
                 matchList[i] = "x"
             else:
@@ -73,10 +73,10 @@ def filterPrice(gameData, matchList, priceInput):
 
 
 def filterCategory(gameData, matchList, categoryInput):
-    if (len(categoryInput) == 0):
+    if (Global.length(categoryInput) == 0):
         return matchList
     else:
-        for i in range(len(matchList)):
+        for i in range(Global.length(matchList)):
             if (categoryInput not in gameData[matchList[i]]["kategori"]):
                 matchList[i] = "x"
             else:
@@ -93,10 +93,10 @@ def filterCategory(gameData, matchList, categoryInput):
 
 
 def filterRelease(gameData, matchList, releaseInput):
-    if (len(releaseInput) == 0):
+    if (Global.length(releaseInput) == 0):
         return matchList
     else:
-        for i in range(len(matchList)):
+        for i in range(Global.length(matchList)):
             if (releaseInput != gameData[matchList[i]]["tahun_rilis"]):
                 matchList[i] = "x"
             else:

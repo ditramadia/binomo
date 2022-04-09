@@ -34,7 +34,7 @@ def SaveUserData(userData, saveFolder):
     file.close()
 
     file = open(f".\\saves\\{saveFolder}\\user.csv", 'a')
-    for i in range(len(userData)):
+    for i in range(Global.length(userData)):
         updateUserId = userData[str(i + 1)]["id"]
         updateUserUsername = userData[str(i + 1)]["username"]
         updateUserName = userData[str(i + 1)]["nama"]
@@ -52,7 +52,7 @@ def SaveGameData(gameData, saveFolder):
     file.close()
 
     file = open(f".\\saves\\{saveFolder}\\game.csv", 'a')
-    for i in range(len(gameData)):
+    for i in range(Global.length(gameData)):
         updateGameId = gameData[Global.convertGameId(i + 1)]["id"]
         updateGameName = gameData[Global.convertGameId(
             i + 1)]["nama"]
@@ -75,7 +75,7 @@ def SaveKepemilikanData(kepemilikanData, saveFolder):
     file.close()
 
     file = open(f".\\saves\\{saveFolder}\\kepemilikan.csv", 'a')
-    for i in range(len(kepemilikanData)):
+    for i in range(Global.length(kepemilikanData)):
         updateKepemilikanId = kepemilikanData[str(i + 1)]["id"]
         updateGameId = kepemilikanData[str(i + 1)]["game_id"]
         updateUserId = kepemilikanData[str(i + 1)]["user_id"]
@@ -90,7 +90,7 @@ def SaveRiwayatData(riwayatData, saveFolder):
     file.close()
 
     file = open(f".\\saves\\{saveFolder}\\riwayat.csv", 'a')
-    for i in range(len(riwayatData)):
+    for i in range(Global.length(riwayatData)):
         updateRiwayatId = riwayatData[str(i + 1)]["id"]
         updateGameId = riwayatData[str(i + 1)]["game_id"]
         updateGameName = riwayatData[str(i + 1)]["nama"]

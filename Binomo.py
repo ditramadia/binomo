@@ -72,13 +72,13 @@ while True:
             ListGameToko.ListGameToko(gameData)
         else:
             print(
-                "Maaf, anda harus login terlebih dahulu untuk mengirim perintah selain “login”.")
+                "Maaf, anda harus login terlebih dahulu untuk mengirim perintah selain login.")
     elif (command == "search_game_at_store"):
         if (currentState["role"] != "guest"):
             SearchGameToko.SearchGameToko(gameData)
         else:
             print(
-                "Maaf, anda harus login terlebih dahulu untuk mengirim perintah selain “login”.")
+                "Maaf, anda harus login terlebih dahulu untuk mengirim perintah selain login.")
     elif (command == "tambah_game"):
         if (currentState["role"] == "admin"):
             TambahGame.TambahGame(gameData)
@@ -121,6 +121,7 @@ while True:
             print("Maaf, Anda harus menjadi user untuk melakukan hal tersebut.")
     elif (command == "save"):
         Save.Save(userData, gameData, kepemilikanData, riwayatData)
+        programStatus = "saved"
     elif (command == "exit"):
         if (programStatus == "unsaved"):
             if (Exit.isExitConfirmed()):

@@ -1,5 +1,8 @@
 # LOGIN MODULE
 
+import module.globalModule as Global
+
+
 def Login(currentState, userData):
     usernameInput = input('Masukkan username: ')
     passowrdInput = input('Masukkan password: ')
@@ -17,7 +20,7 @@ def Login(currentState, userData):
 
 
 def isLoginValid(userData, usernameInput, passwordInput):
-    for i in range(len(userData)):
+    for i in range(Global.length(userData)):
         if (userData[str(i + 1)]["username"] == usernameInput):
             if (userData[str(i + 1)]["password"] == passwordInput):
                 return True
@@ -28,7 +31,7 @@ def isLoginValid(userData, usernameInput, passwordInput):
 
 
 def getLoginId(userData, usernameInput, passwordInput):
-    for i in range(len(userData)):
+    for i in range(Global.length(userData)):
         if (userData[str(i + 1)]["username"] == usernameInput):
             if (userData[str(i + 1)]["password"] == passwordInput):
                 return (i + 1)

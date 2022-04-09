@@ -1,10 +1,10 @@
 # BUY GAME MODULE
 
 import datetime
+import module.globalModule as Global
 
 
 def BuyGame(currentState, userData, gameData, kepemilikanData, riwayatData):
-    print(userData)
     idGameInput = str(input("Masukkan ID Game: "))
     if (idGameInput in gameData):
         isGameIdValid = True
@@ -33,7 +33,7 @@ def BuyGame(currentState, userData, gameData, kepemilikanData, riwayatData):
         gameStock -= 1
         gameData[idGameInput]["stok"] = str(gameStock)
 
-        newKepemilikanId = str(len(kepemilikanData) + 1)
+        newKepemilikanId = str(Global.length(kepemilikanData) + 1)
         kepemilikanData[newKepemilikanId] = {
             "id": newKepemilikanId,
             "game_id": idGameInput,
@@ -42,7 +42,7 @@ def BuyGame(currentState, userData, gameData, kepemilikanData, riwayatData):
 
         now = datetime.datetime.now()
         buyYear = now.year
-        newRiwayatId = str(len(riwayatData) + 1)
+        newRiwayatId = str(Global.length(riwayatData) + 1)
         gameName = gameData[idGameInput]["nama"]
         riwayatData[newRiwayatId] = {
             "id": newRiwayatId,
@@ -72,7 +72,7 @@ def isSaldoAvailable(gameData, idGameInput, currentState):
 
 def isGamePurchased(currentState, kepemilikanData, idGameInput):
     valid = False
-    for i in range(len(kepemilikanData)):
+    for i in range(Global.length(kepemilikanData)):
         if (kepemilikanData[str(i + 1)]["user_id"] == currentState["id"]):
             if (kepemilikanData[str(i + 1)]["game_id"] == idGameInput):
                 valid = True
