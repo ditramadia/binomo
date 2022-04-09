@@ -26,8 +26,26 @@ def displayGameCharacters(string, length):
     return finalString
 
 
+# len()
 def length(object):
     count = 0
     for i in object:
         count += 1
     return count
+
+
+# split()
+def seperate(string, word):
+    elements = 1
+    for i in range(len(string)):
+        if (string[i] == word):
+            elements += 1
+
+    list = ["" for i in range(elements)]
+    listIndex = 0
+    for i in range(len(string)):
+        if (string[i] == word):
+            listIndex += 1
+        else:
+            list[listIndex] += string[i]
+    return list

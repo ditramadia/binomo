@@ -29,9 +29,11 @@ def getFolderName():
 def LoadUserData(folder):
     file = open(f".\\{folder}\\user.csv", 'r')
     dataFrame = {}
-    header = file.readline().replace('\n', '').split(';')
+    header = file.readline().replace('\n', '')
+    header = Global.seperate(header, ";")
     for line in file:
-        linedata = line.replace('\n', '').split(';')
+        linedata = line.replace('\n', '')
+        linedata = Global.seperate(linedata, ";")
         row = {}
         for x in range(Global.length(header)):
             if (x in range(Global.length(linedata))):
@@ -46,9 +48,11 @@ def LoadUserData(folder):
 def LoadGameData(folder):
     file = open(f".\\{folder}\\game.csv", 'r')
     dataFrame = {}
-    header = file.readline().replace('\n', '').split(';')
+    header = file.readline().replace('\n', '')
+    header = Global.seperate(header, ";")
     for line in file:
-        linedata = line.replace('\n', '').split(';')
+        linedata = line.replace('\n', '')
+        linedata = Global.seperate(linedata, ";")
         row = {}
         for x in range(Global.length(header)):
             if (x in range(Global.length(linedata))):
@@ -63,9 +67,11 @@ def LoadGameData(folder):
 def LoadKepemilikanData(folder):
     file = open(f".\\{folder}\\kepemilikan.csv", 'r')
     dataFrame = {}
-    header = file.readline().replace('\n', '').split(';')
+    header = file.readline().replace('\n', '')
+    header = Global.seperate(header, ";")
     for line in file:
-        linedata = line.replace('\n', '').split(';')
+        linedata = line.replace('\n', '')
+        linedata = Global.seperate(linedata, ";")
         row = {}
         for x in range(Global.length(header)):
             if (x in range(Global.length(linedata))):
@@ -80,9 +86,11 @@ def LoadKepemilikanData(folder):
 def LoadRiwayatData(folder):
     file = open(f".\\{folder}\\riwayat.csv", 'r')
     dataFrame = {}
-    header = file.readline().replace('\n', '').split(';')
+    header = file.readline().replace('\n', '')
+    header = Global.seperate(header, ";")
     for line in file:
-        linedata = line.replace('\n', '').split(';')
+        linedata = line.replace('\n', '')
+        linedata = Global.seperate(linedata, ";")
         row = {}
         for x in range(Global.length(header)):
             if (x in range(Global.length(linedata))):
