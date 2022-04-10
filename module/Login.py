@@ -1,6 +1,7 @@
 # LOGIN MODULE
 
 import module.globalModule as Global
+import module.Cipher as Cipher
 
 
 def Login(currentState, userData):
@@ -11,7 +12,8 @@ def Login(currentState, userData):
         currentState["id"] = finalId
         currentState["username"] = userData[str(finalId)]["username"]
         currentState["nama"] = userData[str(finalId)]["nama"]
-        currentState["password"] = userData[str(finalId)]["password"]
+        currentState["password"] = Cipher.Cipher(
+            userData[str(finalId)]["password"])
         currentState["role"] = userData[str(finalId)]["role"]
         currentState["saldo"] = userData[str(finalId)]["saldo"]
         print(f'Halo {currentState["nama"]}! Selamat datang di "Binomo"')
@@ -22,7 +24,7 @@ def Login(currentState, userData):
 def isLoginValid(userData, usernameInput, passwordInput):
     for i in range(Global.length(userData)):
         if (userData[str(i + 1)]["username"] == usernameInput):
-            if (userData[str(i + 1)]["password"] == passwordInput):
+            if (userData[str(i + 1)]["password"] == Cipher.Cipher(passwordInput)):
                 return True
             else:
                 False
@@ -33,7 +35,7 @@ def isLoginValid(userData, usernameInput, passwordInput):
 def getLoginId(userData, usernameInput, passwordInput):
     for i in range(Global.length(userData)):
         if (userData[str(i + 1)]["username"] == usernameInput):
-            if (userData[str(i + 1)]["password"] == passwordInput):
+            if (userData[str(i + 1)]["password"] == Cipher.Cipher(passwordInput)):
                 return (i + 1)
             else:
                 None

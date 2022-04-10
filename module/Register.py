@@ -1,6 +1,7 @@
 # REGISTER MODULE
 
 import module.globalModule as Global
+import module.Cipher as Cipher
 
 
 def Register(currentState, userData):
@@ -20,7 +21,7 @@ def Register(currentState, userData):
         "id": str(Global.length(userData) + 1),
         "username": usernameInput,
         "nama": namaInput,
-        "password": passwordInput,
+        "password": Cipher.Cipher(passwordInput),
         "role": "user",
         "saldo": str(0),
     }
