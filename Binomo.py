@@ -15,6 +15,7 @@ import module.BuyGame as BuyGame
 import module.Riwayat as Riwayat
 import module.ListGame as ListGame
 import module.SearchMyGame as SearchMyGame
+import module.KerangAjaib as Kerang
 import module.Save as Save
 import module.Exit as Exit
 
@@ -131,5 +132,7 @@ while True:
                 Exit.Exit()
         else:
             Exit.Exit()
+    elif (command == "kerangajaib"):
+        Kerang.KerangAjaib()
     else:
         print("Maaf, perintah tidak ditemukan. Ketik 'help' untuk melihat daftar perintah")
