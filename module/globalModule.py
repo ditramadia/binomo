@@ -66,3 +66,13 @@ def Replace(string, initialCharacter, finalCharacter):
         string += listedString[i]
 
     return string
+
+# append()
+
+
+def Append(list, newElement):
+    temp = ["" for i in range(length(list) + 1)]
+    for i in range(length(list)):
+        temp[i] = list[i]
+    temp[length(list)] = newElement
+    return temp

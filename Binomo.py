@@ -41,82 +41,77 @@ riwayatData = Load.LoadRiwayatData("data")
 # print("Masukkan perintah atau ketik 'help' untuk melihat daftar perintah")
 
 # INITIAL STATE
-currentState = {
-    "id": None,
-    "username": None,
-    "nama": None,
-    "password": None,
-    "role": "guest",
-    "saldo": None
-}
+currentState = [['id', 'username', 'nama', 'password',
+                 'role', 'saldo'], [None, None, None, None, "guest", None]]
 programStatus = "saved"
 
 while True:
     command = str(input(">>> "))
     if (command == "help"):
         Help.callHelp(currentState)
+        print(userData)
     elif (command == "login"):
         Login.Login(currentState, userData)
     elif (command == "register"):
-        if (currentState["role"] == "admin"):
-            Register.Register(currentState, userData)
+        if (currentState[1][4] == "admin"):
+            userData = Register.Register(userData)
             programStatus = "unsaved"
         else:
             print("Maaf, anda tidak memiliki izin untuk menjalankan perintah berikut. Mintalah ke administrator untuk melakukan hal tersebut.")
     elif (command == "topup"):
-        if (currentState["role"] == "admin"):
-            Topup.Topup(userData)
+        if (currentState[1][4] == "admin"):
+            userData = Topup.Topup(userData)
         else:
             print("Maaf, anda tidak memiliki izin untuk menjalankan perintah berikut. Mintalah ke administrator untuk melakukan hal tersebut.")
     elif (command == "list_game_toko"):
-        if (currentState["role"] != "guest"):
+        if (currentState[1][4] != "guest"):
             ListGameToko.ListGameToko(gameData)
         else:
             print(
                 "Maaf, anda harus login terlebih dahulu untuk mengirim perintah selain login.")
     elif (command == "search_game_at_store"):
-        if (currentState["role"] != "guest"):
+        if (currentState[1][4] != "guest"):
             SearchGameToko.SearchGameToko(gameData)
         else:
             print(
                 "Maaf, anda harus login terlebih dahulu untuk mengirim perintah selain login.")
     elif (command == "tambah_game"):
-        if (currentState["role"] == "admin"):
+        if (currentState[1][4] == "admin"):
             TambahGame.TambahGame(gameData)
             programStatus = "unsaved"
         else:
             print("Maaf, anda tidak memiliki izin untuk menjalankan perintah berikut. Mintalah ke administrator untuk melakukan hal tersebut.")
     elif (command == "ubah_game"):
-        if (currentState["role"] == "admin"):
+        if (currentState[1][4] == "admin"):
             UbahGame.UbahGame(gameData)
             programStatus = "unsaved"
         else:
             print("Maaf, anda tidak memiliki izin untuk menjalankan perintah berikut. Mintalah ke administrator untuk melakukan hal tersebut.")
     elif (command == "ubah_stok"):
-        if (currentState["role"] == "admin"):
+        if (currentState[1][4] == "admin"):
             UbahStok.ubahStok(gameData)
             programStatus = "unsaved"
         else:
             print("Maaf, anda tidak memiliki izin untuk menjalankan perintah berikut. Mintalah ke administrator untuk melakukan hal tersebut.")
     elif (command == "buy_game"):
-        if (currentState["role"] == "user"):
+        if (currentState[1][4] == "user"):
             BuyGame.BuyGame(currentState, userData, gameData,
                             kepemilikanData, riwayatData)
             programStatus = "unsaved"
         else:
             print("Maaf, Anda harus menjadi user untuk melakukan hal tersebut.")
     elif (command == "riwayat"):
-        if (currentState["role"] == "user"):
+        if (currentState[1][4] == "user"):
             Riwayat.Riwayat(riwayatData, currentState)
         else:
             print("Maaf, Anda harus menjadi user untuk melakukan hal tersebut.")
     elif (command == "list_game"):
-        if (currentState["role"] == "user"):
+        if (currentState[1][4] == "user"):
             ListGame.ListGame(currentState, kepemilikanData, gameData)
         else:
             print("Maaf, Anda harus menjadi user untuk melakukan hal tersebut.")
     elif (command == "search_my_game"):
-        if (currentState["role"] == "user"):
+        if (currentState[1][4] == "user"):
             SearchMyGame.SearchMyGame(currentState, kepemilikanData, gameData)
         else:
             print("Maaf, Anda harus menjadi user untuk melakukan hal tersebut.")

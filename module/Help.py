@@ -2,7 +2,7 @@
 
 def callHelp(currentState):
     print('============ HELP ===========')
-    if (currentState["role"] == "user"):
+    if (currentState[1][4] == "user"):
         print('''
 1. login - Untuk melakukan login ke dalam sistem
 2. list_game_toko - Untuk menampilkan daftar game dengan sorting
@@ -15,7 +15,7 @@ def callHelp(currentState):
 9. help - Untuk menampilkan daftar perintah
 10. exit - Untuk keluar dari aplikasi
 ''')
-    elif (currentState["role"] == "admin"):
+    elif (currentState[1][4] == "admin"):
         print('''
 1. login - Untuk melakukan login ke dalam sistem
 2. register - Untuk menambahkan akun ke dalam sistem

@@ -14,22 +14,24 @@ def Topup(userData):
             print('Masukan saldo tidak valid.')
 
     id = getTopupId(userData, usernameInput)
-    userData[str(id)]["saldo"] = str(
-        int(userData[str(id)]["saldo"]) + saldoInput)
+    userData[id][5] = str(
+        int(userData[id][5]) + saldoInput)
+
+    return userData
 
 
 def isUsernameExist(userData, usernameInput):
     usernameExist = False
-    for i in range(Global.length(userData)):
-        if (userData[str(i + 1)]["username"] == usernameInput):
+    for i in range(Global.length(userData) - 1):
+        if (userData[i + 1][1] == usernameInput):
             usernameExist = True
             break
     return usernameExist
 
 
 def getTopupId(userData, usernameInput):
-    for i in range(Global.length(userData)):
-        if (userData[str(i + 1)]["username"] == usernameInput):
+    for i in range(Global.length(userData) - 1):
+        if (userData[i + 1][1] == usernameInput):
             id = i + 1
         else:
             pass

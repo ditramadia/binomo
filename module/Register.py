@@ -4,7 +4,7 @@ import module.globalModule as Global
 import module.Cipher as Cipher
 
 
-def Register(currentState, userData):
+def Register(userData):
     namaInput = str(input("Masukkan nama: "))
     usernameInput = str(input("Masukkan username: "))
     passwordInput = str(input("Masukkan password: "))
@@ -17,16 +17,12 @@ def Register(currentState, userData):
             print(
                 f'Username {usernameInput} sudah terpakai, silakan menggunakan username lain.')
             usernameInput = str(input("Masukkan username: "))
-    userData[str(Global.length(userData) + 1)] = {
-        "id": str(Global.length(userData) + 1),
-        "username": usernameInput,
-        "nama": namaInput,
-        "password": Cipher.Cipher(passwordInput),
-        "role": "user",
-        "saldo": str(0),
-    }
+    newUserData = [Global.length(userData), usernameInput, namaInput, Cipher.Cipher(
+        passwordInput), "user", str(0)]
+    userData = Global.Append(userData, newUserData)
     print(
         f'Username {usernameInput} telah berhasil register ke dalam "Binomo".')
+    return userData
 
 
 def isUsernameCharactersValid(usernameInput):
@@ -50,8 +46,8 @@ def isUsernameCharactersValid(usernameInput):
 
 def isUsernameAvailable(userData, usernameInput):
     identicalUsername = 0
-    for userIndex in range(Global.length(userData)):
-        if (userData[str(userIndex + 1)]["username"] == usernameInput):
+    for userIndex in range(Global.length(userData) - 1):
+        if (userData[userIndex + 1][1] == usernameInput):
             identicalUsername += 1
         else:
             pass
