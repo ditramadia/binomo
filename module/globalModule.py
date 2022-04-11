@@ -12,6 +12,11 @@ def convertGameId(number):
         return str("GAME" + str(number))
 
 
+def convertGameIdReverse(id):
+    number = id[4] + id[5] + id[6]
+    return str(int(number))
+
+
 def displayGameCharacters(string, length):
     finalString = ""
     if (Global.length(string) > length):

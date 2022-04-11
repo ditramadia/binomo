@@ -42,14 +42,14 @@ riwayatData = Load.LoadRiwayatData("data")
 
 # INITIAL STATE
 currentState = [['id', 'username', 'nama', 'password',
-                 'role', 'saldo'], [None, None, None, None, "guest", None]]
+                 'role', 'saldo'], [None, None, None, None, "admin", None]]
 programStatus = "saved"
 
 while True:
     command = str(input(">>> "))
     if (command == "help"):
         Help.callHelp(currentState)
-        print(userData)
+        print(gameData)
     elif (command == "login"):
         Login.Login(currentState, userData)
     elif (command == "register"):
@@ -77,7 +77,7 @@ while True:
                 "Maaf, anda harus login terlebih dahulu untuk mengirim perintah selain login.")
     elif (command == "tambah_game"):
         if (currentState[1][4] == "admin"):
-            TambahGame.TambahGame(gameData)
+            gameData = TambahGame.TambahGame(gameData)
             programStatus = "unsaved"
         else:
             print("Maaf, anda tidak memiliki izin untuk menjalankan perintah berikut. Mintalah ke administrator untuk melakukan hal tersebut.")

@@ -27,24 +27,24 @@ def isSortingValid(sorting):
 
 
 def ListGameHargaAscending(gameData):
-    gameDataTemp = ["" for i in range(Global.length(gameData))]
-    for i in range(Global.length(gameData)):
-        gameDataTemp[i] = gameData[Global.convertGameId(i + 1)]["id"]
+    gameDataTemp = ["" for i in range(Global.length(gameData) - 1)]
+    for i in range(Global.length(gameData) - 1):
+        gameDataTemp[i] = gameData[i + 1][0]
 
     listNumber = 0
     while Global.length(gameDataTemp) > 0:
         lowestPriceGame = updateTempGame(gameDataTemp[0], gameData)
         for i in range(Global.length(gameDataTemp) - 1):
-            if (int(lowestPriceGame["harga"]) > int(gameData[gameDataTemp[i + 1]]["harga"])):
+            if (int(lowestPriceGame[4]) > int(gameData[int(Global.convertGameIdReverse(gameDataTemp[i + 1]))][4])):
                 lowestPriceGame = updateTempGame(
                     gameDataTemp[i + 1], gameData)
 
-        gameId = lowestPriceGame["id"]
-        gameName = lowestPriceGame["nama"]
-        gamePrice = lowestPriceGame["harga"]
-        gameCategory = lowestPriceGame["kategori"]
-        gameRelease = lowestPriceGame["tahun_rilis"]
-        gameStock = lowestPriceGame["stok"]
+        gameId = lowestPriceGame[0]
+        gameName = lowestPriceGame[1]
+        gamePrice = lowestPriceGame[4]
+        gameCategory = lowestPriceGame[2]
+        gameRelease = lowestPriceGame[3]
+        gameStock = lowestPriceGame[5]
 
         print(
             f"{listNumber + 1}. {gameId} | {Global.displayGameCharacters(gameName, 25)} | {Global.displayGameCharacters(gamePrice, 7)} | {Global.displayGameCharacters(gameCategory, 20)} | {gameRelease} | {gameStock} ")
@@ -54,24 +54,24 @@ def ListGameHargaAscending(gameData):
 
 
 def ListGameHargaDescending(gameData):
-    gameDataTemp = ["" for i in range(Global.length(gameData))]
-    for i in range(Global.length(gameData)):
-        gameDataTemp[i] = gameData[Global.convertGameId(i + 1)]["id"]
+    gameDataTemp = ["" for i in range(Global.length(gameData) - 1)]
+    for i in range(Global.length(gameData) - 1):
+        gameDataTemp[i] = gameData[i + 1][0]
 
     listNumber = 0
     while Global.length(gameDataTemp) > 0:
         highestPriceGame = updateTempGame(gameDataTemp[0], gameData)
         for i in range(Global.length(gameDataTemp) - 1):
-            if (int(highestPriceGame["harga"]) < int(gameData[gameDataTemp[i + 1]]["harga"])):
+            if (int(highestPriceGame[4]) < int(gameData[int(Global.convertGameIdReverse(gameDataTemp[i + 1]))][4])):
                 highestPriceGame = updateTempGame(
                     gameDataTemp[i + 1], gameData)
 
-        gameId = highestPriceGame["id"]
-        gameName = highestPriceGame["nama"]
-        gamePrice = highestPriceGame["harga"]
-        gameCategory = highestPriceGame["kategori"]
-        gameRelease = highestPriceGame["tahun_rilis"]
-        gameStock = highestPriceGame["stok"]
+        gameId = highestPriceGame[0]
+        gameName = highestPriceGame[1]
+        gamePrice = highestPriceGame[4]
+        gameCategory = highestPriceGame[2]
+        gameRelease = highestPriceGame[3]
+        gameStock = highestPriceGame[5]
 
         print(
             f"{listNumber + 1}. {gameId} | {Global.displayGameCharacters(gameName, 25)} | {Global.displayGameCharacters(gamePrice, 7)} | {Global.displayGameCharacters(gameCategory, 20)} | {gameRelease} | {gameStock} ")
@@ -81,24 +81,24 @@ def ListGameHargaDescending(gameData):
 
 
 def ListGameTahunAscending(gameData):
-    gameDataTemp = ["" for i in range(Global.length(gameData))]
-    for i in range(Global.length(gameData)):
-        gameDataTemp[i] = gameData[Global.convertGameId(i + 1)]["id"]
+    gameDataTemp = ["" for i in range(Global.length(gameData) - 1)]
+    for i in range(Global.length(gameData) - 1):
+        gameDataTemp[i] = gameData[i + 1][0]
 
     listNumber = 0
     while Global.length(gameDataTemp) > 0:
         lowestReleaseGame = updateTempGame(gameDataTemp[0], gameData)
         for i in range(Global.length(gameDataTemp) - 1):
-            if (int(lowestReleaseGame["tahun_rilis"]) > int(gameData[gameDataTemp[i + 1]]["tahun_rilis"])):
+            if (int(lowestReleaseGame[3]) > int(gameData[int(Global.convertGameIdReverse(gameDataTemp[i + 1]))][3])):
                 lowestReleaseGame = updateTempGame(
                     gameDataTemp[i + 1], gameData)
 
-        gameId = lowestReleaseGame["id"]
-        gameName = lowestReleaseGame["nama"]
-        gamePrice = lowestReleaseGame["harga"]
-        gameCategory = lowestReleaseGame["kategori"]
-        gameRelease = lowestReleaseGame["tahun_rilis"]
-        gameStock = lowestReleaseGame["stok"]
+        gameId = lowestReleaseGame[0]
+        gameName = lowestReleaseGame[1]
+        gamePrice = lowestReleaseGame[4]
+        gameCategory = lowestReleaseGame[2]
+        gameRelease = lowestReleaseGame[3]
+        gameStock = lowestReleaseGame[5]
 
         print(
             f"{listNumber + 1}. {gameId} | {Global.displayGameCharacters(gameName, 25)} | {Global.displayGameCharacters(gamePrice, 7)} | {Global.displayGameCharacters(gameCategory, 20)} | {gameRelease} | {gameStock} ")
@@ -108,24 +108,24 @@ def ListGameTahunAscending(gameData):
 
 
 def ListGameTahunDescending(gameData):
-    gameDataTemp = ["" for i in range(Global.length(gameData))]
-    for i in range(Global.length(gameData)):
-        gameDataTemp[i] = gameData[Global.convertGameId(i + 1)]["id"]
+    gameDataTemp = ["" for i in range(Global.length(gameData) - 1)]
+    for i in range(Global.length(gameData) - 1):
+        gameDataTemp[i] = gameData[i + 1][0]
 
     listNumber = 0
     while Global.length(gameDataTemp) > 0:
         highestReleaseGame = updateTempGame(gameDataTemp[0], gameData)
         for i in range(Global.length(gameDataTemp) - 1):
-            if (int(highestReleaseGame["tahun_rilis"]) < int(gameData[gameDataTemp[i + 1]]["tahun_rilis"])):
+            if (int(highestReleaseGame[3]) < int(gameData[int(Global.convertGameIdReverse(gameDataTemp[i + 1]))][3])):
                 highestReleaseGame = updateTempGame(
                     gameDataTemp[i + 1], gameData)
 
-        gameId = highestReleaseGame["id"]
-        gameName = highestReleaseGame["nama"]
-        gamePrice = highestReleaseGame["harga"]
-        gameCategory = highestReleaseGame["kategori"]
-        gameRelease = highestReleaseGame["tahun_rilis"]
-        gameStock = highestReleaseGame["stok"]
+        gameId = highestReleaseGame[0]
+        gameName = highestReleaseGame[1]
+        gamePrice = highestReleaseGame[4]
+        gameCategory = highestReleaseGame[2]
+        gameRelease = highestReleaseGame[3]
+        gameStock = highestReleaseGame[5]
 
         print(
             f"{listNumber + 1}. {gameId} | {Global.displayGameCharacters(gameName, 25)} | {Global.displayGameCharacters(gamePrice, 7)} | {Global.displayGameCharacters(gameCategory, 20)} | {gameRelease} | {gameStock} ")
@@ -135,11 +135,5 @@ def ListGameTahunDescending(gameData):
 
 
 def updateTempGame(gameId, gameData):
-    return {
-        "id": gameData[gameId]["id"],
-        "nama": gameData[gameId]["nama"],
-        "kategori": gameData[gameId]["kategori"],
-        "tahun_rilis": gameData[gameId]["tahun_rilis"],
-        "harga": gameData[gameId]["harga"],
-        "stok": gameData[gameId]["stok"]
-    }
+    gameIdInt = int(Global.convertGameIdReverse(gameId))
+    return [gameData[gameIdInt][0], gameData[gameIdInt][1], gameData[gameIdInt][2], gameData[gameIdInt][3], gameData[gameIdInt][4], gameData[gameIdInt][5]]

@@ -10,9 +10,9 @@ def SearchGameToko(gameData):
     categoryInput = str(input("Masukkan Kategori Game: "))
     releaseInput = str(input("Masukkan Tahun Rilis Game: "))
 
-    matchList = ["" for i in range(Global.length(gameData))]
-    for i in range(Global.length(gameData)):
-        matchList[i] = gameData[Global.convertGameId(i + 1)]["id"]
+    matchList = ["" for i in range(Global.length(gameData) - 1)]
+    for i in range(Global.length(gameData) - 1):
+        matchList[i] = gameData[i + 1][0]
 
     matchList = filterId(gameData, matchList, idInput)
     matchList = filterName(gameData, matchList, nameInput)
@@ -22,14 +22,14 @@ def SearchGameToko(gameData):
 
     print("Daftar game pada toko yang memenuhi kriteria:")
     for i in range(Global.length(matchList)):
-        print(f'{i + 1}. {matchList[i]} | {Global.displayGameCharacters(gameData[matchList[i]]["nama"], 25)} | {Global.displayGameCharacters(gameData[matchList[i]]["harga"], 7)} | {Global.displayGameCharacters(gameData[matchList[i]]["kategori"], 20)} | {gameData[matchList[i]]["tahun_rilis"]} | {gameData[matchList[i]]["stok"]}')
+        print(f'{i + 1}. {matchList[i]} | {Global.displayGameCharacters(gameData[int(Global.convertGameIdReverse(matchList[i]))][1], 25)} | {Global.displayGameCharacters(gameData[int(Global.convertGameIdReverse(matchList[i]))][4], 7)} | {Global.displayGameCharacters(gameData[int(Global.convertGameIdReverse(matchList[i]))][2], 20)} | {gameData[int(Global.convertGameIdReverse(matchList[i]))][3]} | {gameData[int(Global.convertGameIdReverse(matchList[i]))][5]}')
 
 
 def filterId(gameData, matchList, idInput):
     if (Global.length(idInput) == 0):
         return matchList
     else:
-        return [gameData[idInput]["id"]]
+        return [gameData[int(Global.convertGameIdReverse(idInput))][0]]
 
 
 def filterName(gameData, matchList, nameInput):
@@ -37,7 +37,7 @@ def filterName(gameData, matchList, nameInput):
         return matchList
     else:
         for i in range(Global.length(matchList)):
-            if (nameInput not in gameData[matchList[i]]["nama"]):
+            if (nameInput not in gameData[int(Global.convertGameIdReverse(matchList[i]))][1]):
                 matchList[i] = "x"
             else:
                 pass
@@ -57,7 +57,7 @@ def filterPrice(gameData, matchList, priceInput):
         return matchList
     else:
         for i in range(Global.length(matchList)):
-            if (priceInput != gameData[matchList[i]]["harga"]):
+            if (priceInput != gameData[int(Global.convertGameIdReverse(matchList[i]))][4]):
                 matchList[i] = "x"
             else:
                 pass
@@ -77,7 +77,7 @@ def filterCategory(gameData, matchList, categoryInput):
         return matchList
     else:
         for i in range(Global.length(matchList)):
-            if (categoryInput not in gameData[matchList[i]]["kategori"]):
+            if (categoryInput not in gameData[int(Global.convertGameIdReverse(matchList[i]))][2]):
                 matchList[i] = "x"
             else:
                 pass
@@ -97,7 +97,7 @@ def filterRelease(gameData, matchList, releaseInput):
         return matchList
     else:
         for i in range(Global.length(matchList)):
-            if (releaseInput != gameData[matchList[i]]["tahun_rilis"]):
+            if (releaseInput != gameData[int(Global.convertGameIdReverse(matchList[i]))][3]):
                 matchList[i] = "x"
             else:
                 pass

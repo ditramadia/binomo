@@ -44,21 +44,17 @@ def LoadUserData(folder):
 
 def LoadGameData(folder):
     file = open(f".\\{folder}\\game.csv", 'r')
-    dataFrame = {}
+    dataFrame = []
     header = file.readline()
     header = Global.Replace(header, "\n", "")
     header = Global.seperate(header, ";")
+    dataFrame = Global.Append(dataFrame, header)
     for line in file:
-        linedata = line.replace('\n', '')
+        linedata = Global.Replace(line, '\n', '')
         linedata = Global.seperate(linedata, ";")
-        row = {}
-        for x in range(Global.length(header)):
-            if (x in range(Global.length(linedata))):
-                row[header[x]] = linedata[x]
-            else:
-                row[header[x]] = "null"
-        dataFrame[linedata[0]] = row
+        dataFrame = Global.Append(dataFrame, linedata)
     file.close()
+
     return dataFrame
 
 

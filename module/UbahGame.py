@@ -5,14 +5,14 @@ import module.globalModule as Global
 
 def UbahGame(gameData):
     gameId = str(input("Masukkan id game yang akan diubah: "))
-    if (gameId in gameData):
+    if (GameIdExist(gameData, gameId)):
         idValid = True
     else:
         idValid = False
     while not idValid:
         print('Tidak ada game dengan ID tersebut.')
         gameId = str(input('Masukkan ulang id game yang akan diubah: '))
-        if (gameId in gameData):
+        if (GameIdExist(gameData, gameId)):
             idValid = True
 
     newGameName = str(input("Masukkan nama game: "))
@@ -28,12 +28,20 @@ def UbahGame(gameData):
         newGamePrice = str(input("Masukkan harga: "))
 
     if (Global.length(newGameName) != 0):
-        gameData[gameId]["nama"] = newGameName
+        gameData[int(Global.convertGameIdReverse(gameId))][1] = newGameName
     if (Global.length(newGameCategory) != 0):
-        gameData[gameId]["kategori"] = newGameCategory
+        gameData[int(Global.convertGameIdReverse(gameId))][2] = newGameCategory
     if (Global.length(newGameRelease) != 0):
-        gameData[gameId]["tahun_rilis"] = newGameRelease
+        gameData[int(Global.convertGameIdReverse(gameId))][3] = newGameRelease
     if (Global.length(newGamePrice) != 0):
-        gameData[gameId]["harga"] = newGamePrice
+        gameData[int(Global.convertGameIdReverse(gameId))][4] = newGamePrice
 
     print("Selamat! Game berhasil diubah")
+
+
+def GameIdExist(gameData, gameId):
+    valid = False
+    for i in range(Global.length(gameData) - 1):
+        if (gameData[i + 1][0] == gameId):
+            valid = True
+    return valid
